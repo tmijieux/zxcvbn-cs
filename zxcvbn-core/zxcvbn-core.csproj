@@ -5,6 +5,7 @@
     <PackageId>zxcvbn-core</PackageId>
     <Authors>mickford;Tony Richards (trichards57);Dan Wheeler;DropBox</Authors>
     <Product>zxcvbn-core</Product>
+    <LangVersion>8.0</LangVersion>
     <Description>C#/.NET port of Dan Wheeler/DropBox's Zxcvbn JS password strength estimation library.  Updated for .Net Core.</Description>
     <PackageProjectUrl>https://github.com/trichards57/zxcvbn-cs</PackageProjectUrl>
     <RepositoryUrl>https://github.com/trichards57/zxcvbn-cs.git</RepositoryUrl>
@@ -29,7 +30,8 @@
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dictionaries\*.lst" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="Dictionaries\*.lst.gz"
+                      Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

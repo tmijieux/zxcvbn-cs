@@ -959,6 +959,13 @@
             A few useful extension methods used through the Zxcvbn project.
             </summary>
         </member>
+        <member name="M:Zxcvbn.Utility.ReadAllGzipLines(System.String)">
+            <summary>
+            Helper method to parse gzipped files.
+            </summary>
+            <param name="filename">The filename of the file to get the contents from.</param>
+            <returns>An enumerable of lines of text in the resource.</returns>
+        </member>
         <member name="M:Zxcvbn.Utility.GetEmbeddedResourceLines(System.String)">
             <summary>
             Returns a list of the lines of text from an embedded resource in the assembly.
@@ -972,6 +979,17 @@
             </summary>
             <param name="str">String to reverse.</param>
             <returns>String in reverse.</returns>
+        </member>
+        <member name="M:Zxcvbn.Utility.GetEmbeddedResourceLinesImpl(System.Reflection.Assembly,System.String)">
+            <summary>
+            Returns a list of the lines of text from an embedded resource in the assembly.
+            </summary>
+            <remarks>
+            assumes the file exists.
+            </remarks>
+            <param name="asm">the assembly to take the resource from.</param>
+            <param name="resourceName">the resource name to take content from.</param>
+            <returns>An enumerable of lines of text in the resource.</returns>
         </member>
     </members>
 </doc>

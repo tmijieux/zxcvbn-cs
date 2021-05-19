@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Zxcvbn.Matcher.Matches;
 
@@ -91,7 +90,7 @@ namespace Zxcvbn.Matcher
         /// <returns>A dictionary of the words and their associated rank.</returns>
         private static Dictionary<string, int> BuildRankedDictionary(string wordListFile)
         {
-            var lines = Utility.GetEmbeddedResourceLines($"Zxcvbn.Dictionaries.{wordListFile}") ?? File.ReadAllLines(wordListFile);
+            var lines = Utility.GetEmbeddedResourceLines($"Zxcvbn.Dictionaries.{wordListFile}") ?? Utility.ReadAllGzipLines(wordListFile);
 
             return BuildRankedDictionary(lines);
         }

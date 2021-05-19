@@ -8,12 +8,18 @@ namespace Zxcvbn.ListBuilder
 {
     internal static class ListBuilder
     {
+
         /// <summary>
         /// Returns the maximum number of words for a dictionary.
         /// null means take everything.
         /// </summary>
         private static readonly ReadOnlyDictionary<string, int?> DictionaryLimits = new ReadOnlyDictionary<string, int?>(new Dictionary<string, int?>
         {
+            { "fr", 30000 },
+            { "fr-password", 30000 },
+            { "nom_homme", null },
+            { "nom_femme", null },
+
             { "us_tv_and_film", 30000 },
             { "english", 30000 },
             { "passwords", 30000 },

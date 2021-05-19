@@ -25,21 +25,31 @@ namespace Zxcvbn
 
         private static IEnumerable<IMatcher> BuildBuiltInMatchers()
         {
-            var dictionaryMatchers = new List<IMatcher>
+            var files = new List<string>
             {
-                new DictionaryMatcher("passwords", "passwords.lst"),
-                new DictionaryMatcher("english", "english.lst"),
-                new DictionaryMatcher("male_names", "male_names.lst"),
-                new DictionaryMatcher("female_names", "female_names.lst"),
-                new DictionaryMatcher("surnames", "surnames.lst"),
-                new DictionaryMatcher("us_tv_and_film", "us_tv_and_film.lst"),
-                new ReverseDictionaryMatcher("passwords", "passwords.lst"),
-                new ReverseDictionaryMatcher("english", "english.lst"),
-                new ReverseDictionaryMatcher("male_names", "male_names.lst"),
-                new ReverseDictionaryMatcher("female_names", "female_names.lst"),
-                new ReverseDictionaryMatcher("surnames", "surnames.lst"),
-                new ReverseDictionaryMatcher("us_tv_and_film", "us_tv_and_film.lst"),
+                "fr-passwords",
+                "fr",
+                "nom_homme",
+                "nom_femme",
+
+                "passwords",
+                "english",
+                "male_names",
+                "female_names",
+                "surnames",
+                "us_tv_and_film",
             };
+
+            var dictionaryMatchers = new List<IMatcher>();
+            foreach (var s in files)
+            {
+                dictionaryMatchers.Add(new DictionaryMatcher(s, $"{s}.lst.gz"));
+            }
+
+            foreach (var s in files)
+            {
+                dictionaryMatchers.Add(new ReverseDictionaryMatcher(s, $"{s}.lst.gz"));
+            }
 
             return new List<IMatcher>(dictionaryMatchers)
             {
